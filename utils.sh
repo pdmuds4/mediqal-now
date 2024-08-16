@@ -71,8 +71,6 @@ lambda_deploy_all(){
 }
 
 s3_deploy(){
-    sudo yum -y install jq
-    
     bucket_name="mti-internship"
     
     policy=$(printf '{

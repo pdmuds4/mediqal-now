@@ -13,7 +13,7 @@ const router = createRouter({
       name: 'Home',
       component: Home,
       meta: {
-        title: 'Home'
+        title: 'Mediqal now - ホーム'
       }
     },
     {
@@ -21,7 +21,7 @@ const router = createRouter({
       name: 'WriterHome',
       component: WriterHome,
       meta: {
-        title: 'WriterHome'
+        title: 'Mediqal now - ホーム'
       }
     },
     {
@@ -29,7 +29,7 @@ const router = createRouter({
       name: 'WriterView',
       component: WriterView,
       meta: {
-        title: 'WriterView'
+        title: 'Mediqal now - 閲覧'
       }
     },
     {
@@ -37,7 +37,7 @@ const router = createRouter({
       name: 'WriterLogin',
       component: WriterLogin,
       meta: {
-        title: 'WriterLogin'
+        title: 'Mediqal now - ログイン'
       }
     },
     {
@@ -45,13 +45,13 @@ const router = createRouter({
       name: 'WriterProfile',
       component: WriterProfile,
       meta: {
-        title: 'WriterProfile'
+        title: 'Mediqal now - プロフィール'
       }
     }
   ]
 })
 
-const DEFAULT_TITLE = 'TITLE';
+const DEFAULT_TITLE = 'Mediqal now';
 
 router.afterEach((to) => {
   document.title = to.meta.title ?? DEFAULT_TITLE

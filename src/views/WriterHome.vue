@@ -102,8 +102,8 @@ export default {
 
   components: {
    // 読み込んだコンポーネント名をここに記述する
-   Menu,
-   Article
+    Menu,
+    Article
   },
 
   data() {
@@ -189,7 +189,7 @@ export default {
     }
     
     try {
-      const res = await fetch(baseUrl + "/articles", {
+      const res = await fetch(baseUrl + "/article", {
         method: "GET"
       });
 
@@ -235,8 +235,8 @@ export default {
         text: this.post.text,
         like: this.post.like,
         url: this.post.url,
-        category: this.selected,
-        symptoms: this.selectedField
+        category: this.post.category,
+        symptoms: this.post.symptoms,
       };
       try {
         /* global fetch */

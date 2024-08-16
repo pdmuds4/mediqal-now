@@ -58,14 +58,12 @@
 // @は/srcの同じ意味です
 // import something from '@/components/something.vue';
 import { baseUrl } from '@/assets/config.js'
-import Loader from '@/components/Loader.vue'
 
 export default {
   name: 'WriterLogin',
 
   components: {
     // 読み込んだコンポーネント名をここに記述する
-    Loader
   },
 
   data() {

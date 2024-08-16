@@ -152,7 +152,7 @@ export default {
     // Vue.jsの読み込みが完了したときに実行する処理はここに記述する
     // apiからarticleを取得する
     try {
-      const res = await fetch(baseUrl + "/articles", {
+      const res = await fetch(baseUrl + "/article", {
         method: "GET"
       });
 
