@@ -1,7 +1,7 @@
 const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb");
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
 const client = new DynamoDBClient({ region: "ap-northeast-1" });
-const TableName = "team2_Article";
+const TableName = "mti-intern-Article";
 
 exports.handler = async (event, context) => {
   const response = {

@@ -1,7 +1,7 @@
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 const client = new DynamoDBClient({ region: "ap-northeast-1" });
-const TableName = "team2_Article";
+const TableName = "mti-intern-Article";
 
 exports.handler = async (event, context) => {
   const response = {
@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
     body: JSON.stringify({ message: "" }),
   };
   
-   if (event.headers.authorization !== "mtiToken") {
+  if (event.headers.authorization !== "mtiToken") {
     response.statusCode = 401;
     response.body = JSON.stringify({
       message: "認証されていません。HeaderにTokenを指定してください",
@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
   }
 
   const body = event.body ? JSON.parse(event.body) : null;
-  if (!body || !body.text || !body.category || !body.symptoms|| !body.title　||!body.like) {
+  if (!body || !body.text || !body.category || !body.symptoms|| !body.title || !body.like) {
     response.statusCode = 400;
     response.body = JSON.stringify({
       message:

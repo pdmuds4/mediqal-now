@@ -1,7 +1,7 @@
 const { DynamoDBClient, GetItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
 const client = new DynamoDBClient({ region: "ap-northeast-1" });
-const TableName = "team2_User";
+const TableName = "mti-intern-Users";
 
 exports.handler = async (event, context) => {
   //レスポンスの雛形

@@ -1,20 +1,20 @@
 #!/bin/bash
 
-name=$(cat yourname.env | sed s/YOURNAME=//)
+# name=$(cat yourname.env | sed s/YOURNAME=//)
 
-writename(){
-    if [ "$(ls lambda/ | grep "${name}")" ]; then
-        echo "既にあなたの名前に変わっているため、変更は行いません"
-    else
-        cd lambda
-        for jsf in *.js
-        do
-            mv "${jsf}" "${name}-${jsf}"
-        done
-        echo "ファイル名の変更が完了しました"
-        cd ..
-    fi
-}
+# writename(){
+#     if [ "$(ls lambda/ | grep "${name}")" ]; then
+#         echo "既にあなたの名前に変わっているため、変更は行いません"
+#     else
+#         cd lambda
+#         for jsf in *.js
+#         do
+#             mv "${jsf}" "${name}-${jsf}"
+#         done
+#         echo "ファイル名の変更が完了しました"
+#         cd ..
+#     fi
+# }
 
 lambda_deploy() {
         
@@ -73,7 +73,7 @@ lambda_deploy_all(){
 s3_deploy(){
     sudo yum -y install jq
     
-    bucket_name="${name}-internship"
+    bucket_name="mti-internship"
     
     policy=$(printf '{
         "Version": "2012-10-17",
@@ -104,19 +104,19 @@ s3_deploy(){
 
 s3_update(){
     npm run build
-    aws s3 cp ./dist s3://${name}-internship --recursive
+    aws s3 cp ./dist s3://mti-internship --recursive
 }
 
-deletename(){
-    cd lambda
-    for noname in *.js
-    do
-        blankp=$(echo ${noname} | sed s/${name}-//)
-        mv "${noname}" "${blankp}"
-    done
-    echo "名前を削除しました"
-    cd ..
-}
+# deletename(){
+#     cd lambda
+#     for noname in *.js
+#     do
+#         blankp=$(echo ${noname} | sed s/${name}-//)
+#         mv "${noname}" "${blankp}"
+#     done
+#     echo "名前を削除しました"
+#     cd ..
+# }
 
 case $1 in
     "") writename;;
